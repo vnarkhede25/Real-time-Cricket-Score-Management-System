@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>OverNova | Live Cricket Command</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            ON
+        </div>
+
+        <div>
+            <h1>OverNova</h1>
+            <span>LIVE CRICKET COMMAND</span>
+        </div>
+
+    </div>
+
+    <div class="nav-right">
+
+        <div class="connection">
+            <span class="pulse"></span>
+            LIVE ENGINE
+        </div>
+
+        <div class="student">
+            Vaishnavi Narkhede
+            <strong>Roll No. 48</strong>
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            ⚡ REAL-TIME CRICKET INTELLIGENCE
+        </div>
+
+        <h2>
+            Every run.
+            <span>Every ball.</span>
+            Every moment.
+        </h2>
+
+        <p>
+            A scalable cricket score management system powered by
+            Spring Boot REST APIs and live score simulation.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#live" class="primary-btn">
+                Watch Live →
+            </a>
+
+            <button onclick="loadMatches()" class="secondary-btn">
+                ↻ Refresh
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="hero-ball">
+
+        <div class="cricket-ball">
+            <span>🏏</span>
+        </div>
+
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+    <!-- LIVE SECTION -->
+
+    <section id="live" class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    ON THE FIELD
+                </div>
+
+                <h2>Live Matches</h2>
+
+            </div>
+
+            <div class="auto-update">
+                <span class="live-dot"></span>
+                AUTO UPDATE · 8 SEC
+            </div>
+
+        </div>
+
+
+        <div id="liveMatches"
+             class="match-grid">
+
+            <!-- JS -->
+
+        </div>
+
+    </section>
+
+
+    <!-- SCOREBOARD -->
+
+    <section class="score-section">
+
+        <div class="score-card">
+
+            <div class="score-top">
+
+                <div>
+
+                    <span class="live-badge">
+                        ● LIVE
+                    </span>
+
+                    <h2 id="scoreTitle">
+                        Loading match...
+                    </h2>
+
+                    <p id="venue">
+                        Fetching venue...
+                    </p>
+
+                </div>
+
+                <div class="match-type"
+                     id="matchType">
+                    T20
+                </div>
+
+            </div>
+
+
+            <div class="teams">
+
+                <div class="team">
+
+                    <div class="team-logo">
+                        A
+                    </div>
+
+                    <div>
+                        <h3 id="teamA">
+                            TEAM A
+                        </h3>
+
+                        <div class="score">
+                            <span id="runsA">0</span>
+                            /
+                            <span id="wicketsA">0</span>
+                        </div>
+
+                        <small>
+                            Overs
+                            <span id="oversA">0.0</span>
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vs">
+                    VS
+                </div>
+
+
+                <div class="team team-right">
+
+                    <div>
+
+                        <h3 id="teamB">
+                            TEAM B
+                        </h3>
+
+                        <div class="score">
+                            <span id="runsB">0</span>
+                            /
+                            <span id="wicketsB">0</span>
+                        </div>
+
+                        <small>
+                            Overs
+                            <span id="oversB">0.0</span>
+                        </small>
+
+                    </div>
+
+                    <div class="team-logo secondary">
+                        B
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="target-box">
+
+                <div>
+                    <span>TARGET</span>
+                    <strong id="target">—</strong>
+                </div>
+
+                <div>
+                    <span>STATUS</span>
+                    <strong id="status">
+                        LIVE
+                    </strong>
+                </div>
+
+                <div>
+                    <span>INNINGS</span>
+                    <strong id="innings">
+                        1st Innings
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="progress-area">
+
+                <div class="progress-label">
+
+                    <span>
+                        Innings Progress
+                    </span>
+
+                    <span id="progressText">
+                        0%
+                    </span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div id="progress"
+                         class="progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PLAYER STATS -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    PLAYER CENTER
+                </div>
+
+                <h2>Match Statistics</h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stats-card">
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                    <tr>
+
+                        <th>PLAYER</th>
+                        <th>TEAM</th>
+                        <th>RUNS</th>
+                        <th>BALLS</th>
+                        <th>4s</th>
+                        <th>6s</th>
+                        <th>WICKETS</th>
+
+                    </tr>
+
+                    </thead>
+
+                    <tbody id="playerStats">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RECENT MATCHES -->
+
+    <section class="section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    ARCHIVE
+                </div>
+
+                <h2>Recent Matches</h2>
+
+            </div>
+
+            <input
+                    id="search"
+                    class="search"
+                    placeholder="Search team..."
+                    oninput="filterMatches()"
+            >
+
+        </div>
+
+
+        <div id="recentMatches"
+             class="recent-grid">
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-brand">
+
+        <div class="brand-icon">
+            ON
+        </div>
+
+        <div>
+
+            <strong>OverNova</strong>
+
+            <span>
+                LIVE CRICKET COMMAND
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-center">
+
+        Real-time Cricket Score Management System
+
+    </div>
+
+
+    <div class="footer-student">
+
+        <strong>Vaishnavi Narkhede</strong>
+
+        <span>
+            Roll No. 48
+        </span>
+
+    </div>
+
+</footer>
+
+
+<div id="toast"
+     class="toast">
+    Score updated
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
